@@ -1,10 +1,14 @@
 package com.security.toolskit.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.security.toolskit.model.UmsAdminLoginLog;
 import com.security.toolskit.mapper.UmsAdminLoginLogMapper;
 import com.security.toolskit.service.UmsAdminLoginLogService;
+
+import java.util.List;
+
 @Service
 public class UmsAdminLoginLogServiceImpl implements UmsAdminLoginLogService{
 
@@ -39,6 +43,12 @@ public class UmsAdminLoginLogServiceImpl implements UmsAdminLoginLogService{
     @Override
     public int updateByPrimaryKey(UmsAdminLoginLog record) {
         return umsAdminLoginLogMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<UmsAdminLoginLog> getUmsLoginLogList(Integer pageNum,Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        return umsAdminLoginLogMapper.selectUmsLoginLogList();
     }
 
 }

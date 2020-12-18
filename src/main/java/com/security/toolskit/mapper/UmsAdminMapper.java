@@ -3,6 +3,8 @@ package com.security.toolskit.mapper;
 import com.security.toolskit.model.UmsAdmin;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface UmsAdminMapper {
     int deleteByPrimaryKey(Long id);
@@ -17,5 +19,9 @@ public interface UmsAdminMapper {
 
     int updateByPrimaryKey(UmsAdmin record);
 
-    UmsAdmin login(String username);
+    UmsAdmin selectByUserName(String username);
+
+    List<UmsAdmin> selectUmsAdminList(String username);
+
+
 }

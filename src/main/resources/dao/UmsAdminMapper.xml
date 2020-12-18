@@ -188,8 +188,18 @@
       `role` = #{role,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="login" resultMap="BaseResultMap">
+  <select id="selectByUserName" resultMap="BaseResultMap">
     select id,`username`, `password` from ums_admin where username=#{username,jdbcType=VARCHAR}
+  </select>
+  <select id="selectUmsAdminList" resultType="com.security.toolskit.model.UmsAdmin" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ums_admin
+    <where>
+      <if test="_parameter != null and _parameter != ''">
+        username = #{_parameter,jdbcType=BIGINT}
+      </if>
+    </where>
   </select>
 
 </mapper>

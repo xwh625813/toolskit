@@ -117,4 +117,12 @@
       `system` = #{system,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectUmsLoginLogList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ums_admin_login_log
+    limit 100 order by create_time desc
+  </select>
+
 </mapper>

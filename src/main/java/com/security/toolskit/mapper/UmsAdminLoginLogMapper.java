@@ -2,6 +2,8 @@ package com.security.toolskit.mapper;
 
 import com.security.toolskit.model.UmsAdminLoginLog;
 
+import java.util.List;
+
 public interface UmsAdminLoginLogMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,6 @@ public interface UmsAdminLoginLogMapper {
     int updateByPrimaryKeySelective(UmsAdminLoginLog record);
 
     int updateByPrimaryKey(UmsAdminLoginLog record);
+
+    List<UmsAdminLoginLog> selectUmsLoginLogList();
 }

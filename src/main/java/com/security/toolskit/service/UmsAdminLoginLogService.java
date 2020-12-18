@@ -1,6 +1,9 @@
 package com.security.toolskit.service;
 
 import com.security.toolskit.model.UmsAdminLoginLog;
+
+import java.util.List;
+
 public interface UmsAdminLoginLogService{
 
 
@@ -16,4 +19,5 @@ public interface UmsAdminLoginLogService{
 
     int updateByPrimaryKey(UmsAdminLoginLog record);
 
+    List<UmsAdminLoginLog> getUmsLoginLogList(Integer pageNum,Integer pageSize);
 }
