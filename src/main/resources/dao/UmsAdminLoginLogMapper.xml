@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.security.toolskit.mapper.UmsAdminLoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.security.toolskit.model.UmsAdminLoginLog">
+    <!--@mbg.generated-->
+    <!--@Table ums_admin_login_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="admin_id" jdbcType="BIGINT" property="adminId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="system" jdbcType="VARCHAR" property="system" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, admin_id, create_time, ip, address, user_agent, `system`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ums_admin_login_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from ums_admin_login_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.security.toolskit.model.UmsAdminLoginLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_admin_login_log (admin_id, create_time, ip, 
+      address, user_agent, `system`
+      )
+    values (#{adminId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{userAgent,jdbcType=VARCHAR}, #{system,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.security.toolskit.model.UmsAdminLoginLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ums_admin_login_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adminId != null">
+        admin_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="userAgent != null">
+        user_agent,
+      </if>
+      <if test="system != null">
+        `system`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adminId != null">
+        #{adminId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="userAgent != null">
+        #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null">
+        #{system,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.security.toolskit.model.UmsAdminLoginLog">
+    <!--@mbg.generated-->
+    update ums_admin_login_log
+    <set>
+      <if test="adminId != null">
+        admin_id = #{adminId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="userAgent != null">
+        user_agent = #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="system != null">
+        `system` = #{system,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.security.toolskit.model.UmsAdminLoginLog">
+    <!--@mbg.generated-->
+    update ums_admin_login_log
+    set admin_id = #{adminId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      user_agent = #{userAgent,jdbcType=VARCHAR},
+      `system` = #{system,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
